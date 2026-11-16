@@ -1,38 +1,97 @@
-<title>Não é um blog!!</title>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>header{background-color: black;
-    color: white;
-    text-align: center;
-max-width: 800px;
-margin: 0 auto;
-padding: 32px;
-border: 5px solid grey}
-    main{background-color: black;
-        max-width: 800px;
-        margin: 0 auto;
-    color: white;};
-    img{
-        width: 90px;
-        height:90px;
-        }</style>
+    <title>HoUrSeC - Digital Statement</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #050505;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Arial Black', Impact, sans-serif;
+            overflow: hidden;
+        }
+
+        .display-container {
+            text-align: center;
+            width: 95%;
+            max-width: 1400px;
+            position: relative;
+        }
+
+        .main-text {
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.3;
+            margin: 0;
+            transition: text-shadow 0.1s ease;
+        }
+
+        .brand-footer {
+            margin-top: 40px;
+            font-size: 1.2rem;
+            color: #444;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            font-family: monospace;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .main-text {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-    <h1> meu blog maneirooo</h1>
-    <p>daleee gurizada mais não e so isso</p>
-    </header>
-    <main>
-    <img src="https://isabelaboscov.com/wp-content/uploads/2016/07/beemovie_feat.jpg?w=1038&h=520&crop=1" alt="image-beemovie">
-    <h2>𝖓𝖆𝖍 𝖒𝖊𝖚 𝖇𝖑𝖔𝖌 𝕸𝖆𝖓𝖊𝖎𝖗𝖔𝖔𝖔</h2>
-    <p>os guri querem resenha em dobro?</p>
-    <p>todo mundo ama a resenha do velho da Van</p>
-     <img src="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/05/24/1464223036-havan.jpg" alt="image-be">
-    </main>
+
+    <div class="display-container">
+        <div class="main-text" id="animatedText">
+            EU SO GAY ASSUMIDO E AMO DAR O CU<br>
+            EU ME CHAMO LUCAS GABRIEL CORDEIRO DA SILVA<br>
+            E EU SO A PUTINHA DA HoUrSeC
+        </div>
+        <div class="brand-footer">
+            HoUrSeC Digital
+        </div>
+    </div>
+
+    <script>
+        const textElement = document.getElementById('animatedText');
+        let hue = 0;
+        const speed = 3; // Velocidade da rotação do espectro de cores
+
+        function animateColor() {
+            hue = (hue + speed) % 360;
+            
+            // Gera uma cor vibrante usando HSL
+            const primaryColor = `hsl(${hue}, 100%, 60%)`;
+            const secondaryColor = `hsl(${(hue + 60) % 360}, 100%, 50%)`;
+            
+            textElement.style.color = primaryColor;
+            
+            // Cria um efeito de brilho (glow) dinâmico
+            textElement.style.textShadow = `
+                0 0 10px ${primaryColor},
+                0 0 20px ${primaryColor},
+                0 0 40px ${secondaryColor},
+                0 0 80px ${secondaryColor}
+            `;
+
+            requestAnimationFrame(animateColor);
+        }
+
+        // Inicia a animação
+        animateColor();
+    </script>
+
 </body>
 </html>
-
